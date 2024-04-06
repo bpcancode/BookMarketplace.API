@@ -1,4 +1,5 @@
 using BookMarketplace.API.Data;
+using BookMarketplace.API.EndPoints;
 using BookMarketplace.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,10 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddTransient<TokenService>();
+builder.Services.AddTransient<TokenService>()
+                .AddTransient<PasswordService>()
+                .AddTransient<AuthService>();
+
 var app = builder.Build();
 
 #if DEBUG
@@ -41,25 +45,7 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast")
-.WithOpenApi();
+app.MapEndpoints();
 
 app.Run();
 
@@ -69,9 +55,4 @@ static void MigrateDatabase(IServiceProvider sp)
     var dataContext = scope.ServiceProvider.GetRequiredService<DataContext>();
     if(dataContext.Database.GetPendingMigrations().Any())
         dataContext.Database.Migrate();
-}
-
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 }

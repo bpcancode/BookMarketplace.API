@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BookMarketplace.API.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookMarketplace.API.Data
 {
@@ -9,5 +10,7 @@ namespace BookMarketplace.API.Data
         {
             
         }
+
+        public DbSet<User> Users { get; set; }
     }
 }
