@@ -1,5 +1,8 @@
 using BookMarketplace.API.Data;
+using BookMarketplace.API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +13,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(options => 
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}) .AddJwtBearer(jwtOptions =>
+    jwtOptions.TokenValidationParameters = TokenService.GetTokenValidationParameter(builder.Configuration));
+
+builder.Services.AddAuthorization();
+
+builder.Services.AddTransient<TokenService>();
 var app = builder.Build();
 
 #if DEBUG
@@ -24,6 +37,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 var summaries = new[]
 {
