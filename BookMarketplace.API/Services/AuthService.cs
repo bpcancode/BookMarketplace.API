@@ -24,6 +24,7 @@ public class AuthService(DataContext context, TokenService tokenService, Passwor
             Email = dto.Email,
             Name = dto.Name,
             Address = dto.Address,
+            Phone = dto.Phone,
         };
 
         (user.Salt, user.Hash) = _passwordService.GenerateSaltAndHash(dto.Password);
@@ -57,7 +58,7 @@ public class AuthService(DataContext context, TokenService tokenService, Passwor
 
     private ResultWithDataDto<AuthResponseDto> GenerateAuthResponse(User user)
     {
-        var loggedInUser = new LoggedInUser(user.Id, user.Name, user.Address, user.Email);
+        var loggedInUser = new LoggedInUser(user.Id, user.Name, user.Address, user.Email, user.Phone);
         var token = _tokenService.GenerateJwt(loggedInUser);
 
         var authResponse = new AuthResponseDto(loggedInUser, token);

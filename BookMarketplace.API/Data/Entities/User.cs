@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookMarketplace.API.Data.Entities;
 
@@ -16,6 +17,9 @@ public class User
 
     [Required, MaxLength(150)]
     public string Address { get; set; }
+
+    [Required, MaxLength(50)]
+    public string Phone { get; set; }
 
     [Required, MaxLength(20)]
     public string Salt { get; set; }
