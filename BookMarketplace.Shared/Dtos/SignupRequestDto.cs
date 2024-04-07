@@ -6,4 +6,4 @@ using System.Threading.Tasks;
 
 namespace BookMarketplace.Shared.Dtos;
 
-public record SignupRequestDto(string Name, string Email, string Password, string Address);
+public record SignupRequestDto(string Name, string Email, string Password, string Address, string Phone);
