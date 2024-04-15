@@ -9,8 +9,14 @@ public class Book
 
     [MaxLength(400)]
     public string Description { get; set; }
-    public string Condition { get; set; } = string.Empty;
+    public decimal Price { get; set; }
+    public bool IsFixedPrice { get; set; }
+    public bool IsExpired { get; set; }
+    public DateTime CreateDate { get; set; } = DateTime.Now;
+    public DateTime UpdateDate { get; set; } = DateTime.Now;
     public User User { get; set; }
+    public Guid UserId { get; set; }
     public List<Genre> Genres { get; set; }
+    public List<BookImage> BookImages { get; set; }
 }
 

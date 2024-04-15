@@ -25,12 +25,14 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddTransient<TokenService>()
                 .AddTransient<PasswordService>()
-                .AddTransient<AuthService>();
+                .AddTransient<AuthService>()
+                .AddTransient<BookService>()
+                .AddTransient<GenreService>();
 
 var app = builder.Build();
 
 #if DEBUG
-MigrateDatabase(app.Services);
+// MigrateDatabase(app.Services);
 #endif
 
 // Configure the HTTP request pipeline.
