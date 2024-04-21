@@ -2,18 +2,67 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:BookMarketplace.App.ViewModel"
+             Shell.NavBarIsVisible="False"
              x:DataType="vm:DashboardViewModel"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Class="BookMarketplace.App.View.DashboardView"
              Title="DashboardView">
+
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="RadioButtonStyle">
+            <Border StrokeShape="RoundRectangle 5" MinimumWidthRequest="100" Padding="5,0">
+                <Label Text="{TemplateBinding Content}" HorizontalOptions="Center" VerticalOptions="Center" />
+                <VisualStateManager.VisualStateGroups>
+                    
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CheckedState">
+                        <VisualState x:Name="Checked">
+                            <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="label" Property="Label.TextColor" Value="White" />
+                                    <Setter TargetName="label" Property="Label.FontAttributes" Value="Bold" />
+                                </VisualState.Setters>
+                        </VisualState>
+
+                            <VisualState x:Name="Unchecked">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                    <Setter TargetName="label" Property="Label.TextColor" Value="Black" />
+                                    <Setter TargetName="label" Property="Label.FontAttributes" Value="None" />
+                                </VisualState.Setters>
+                            </VisualState>
+
+                        </VisualStateGroup>
+                </VisualStateGroupList>
+                </VisualStateManager.VisualStateGroups>
+            </Border>
+        </ControlTemplate>
+    </ContentPage.Resources>
     <ScrollView>
 
-
-        <Grid RowDefinitions="Auto, auto">
-
-            <CollectionView Grid.Row="1" x:DataType="vm:DashboardViewModel">
+        <VerticalStackLayout Padding="20">
+            <Grid ColumnDefinitions="*, auto" ColumnSpacing="10">
                 
+            <material:InputField Title="Title, Author etc" HasValue="True">
+                <SearchBar BackgroundColor="Transparent" />
+            </material:InputField>
+
+                <Button Text="Search" Grid.Column="1" BackgroundColor="Transparent" TextColor="Black" Padding="0" HeightRequest="30" TextTransform="Uppercase" FontAttributes="Bold"/>
+
+            </Grid>
+
+            <Label Margin="0,30" Text="Discover" FontSize="Title" FontAttributes="Bold" />
+
+            <CollectionView ItemsSource="{Binding Genres}" ItemsLayout="HorizontalList">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <RadioButton Content="{Binding .}" ControlTemplate="{StaticResource RadioButtonStyle}" Margin="5,0,0,0" FontAttributes="Bold" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             </CollectionView>
-        </Grid>
-        
+
+            <CollectionView>
+            </CollectionView>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

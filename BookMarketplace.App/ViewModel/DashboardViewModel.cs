@@ -1,4 +1,5 @@
 ﻿using BookMarketplace.App.Services;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,16 @@ using System.Threading.Tasks;
 
 namespace BookMarketplace.App.ViewModel;
 
-public partial class DashboardViewModel(IBookService bookService) : BaseViewModel
+public partial class DashboardViewModel : BaseViewModel
 {
-    private readonly IBookService _bookService = bookService;
+    //private readonly IBookService _bookService = bookService;
+
+
+    [ObservableProperty] private List<string> genres = [
+        "For you",
+        "Sciene Fiction",
+        "Educational",
+        ];
 
     public async Task InitilizeAsync()
     {
