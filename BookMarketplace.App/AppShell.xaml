@@ -3,13 +3,18 @@
     x:Class="BookMarketplace.App.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BookMarketplace.App"
-    Shell.FlyoutBehavior="Disabled"
-    Title="BookMarketplace.App">
+    xmlns:view="clr-namespace:BookMarketplace.App.View"
+    Title="BookMarketplace.App"
+    Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate view:LoginView}"
         Route="MainPage" />
+
+    <TabBar Title="Dashboard" Route="Dashboard">
+
+        <ShellContent Title="Dashboard" ContentTemplate="{DataTemplate view:DashboardView}" />
+    </TabBar>
 
 </Shell>

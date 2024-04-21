@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BookMarketplace.App.ViewModel"
+             x:DataType="vm:DashboardViewModel"
+             x:Class="BookMarketplace.App.View.DashboardView"
+             Title="DashboardView">
+    <ScrollView>
+
+
+        <Grid RowDefinitions="Auto, auto">
+
+            <CollectionView Grid.Row="1" x:DataType="vm:DashboardViewModel">
+                
+            </CollectionView>
+        </Grid>
+        
+    </ScrollView>
+</ContentPage>
