@@ -1,4 +1,5 @@
 ﻿using BookMarketplace.App.Services;
+using BookMarketplace.App.View;
 using BookMarketplace.Shared.Dtos;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -20,7 +21,8 @@ public partial class AuthViewModel(IAuthService authService) : BaseViewModel
     [RelayCommand]
     private async Task Login()
     {
-        if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password)) return;
+        await Shell.Current.GoToAsync("//Dashboard");
+        /*if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password)) return;
 
         var dto = new SigninRequestDto(Email, Password);
         try
@@ -33,15 +35,13 @@ public partial class AuthViewModel(IAuthService authService) : BaseViewModel
             }
             else
             {
-                await Shell.Current.GoToAsync("//Dashboard");
-            }
+            }*/
 
-        }
-        catch (Exception ex)
-        {
+    }
 
-        }
-
-
+    [RelayCommand]
+    private async Task GotoSingupPage()
+    {
+        await Shell.Current.GoToAsync(nameof(SingupView));
     }
 }

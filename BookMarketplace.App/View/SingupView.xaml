@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookMarketplace.App.View.SingupView"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions=".25*,  .75*">
+        <Border StrokeThickness="0"
+                Grid.Row="0"
+                    BackgroundColor="#0A428F"
+                Padding="15,0">
+            <VerticalStackLayout VerticalOptions="Center">
+                <Image Source="logo1" Aspect="AspectFill" HeightRequest="155" WidthRequest="150" ></Image>
+
+            </VerticalStackLayout>
+        </Border>
+
+        <VerticalStackLayout Grid.Row="1" Padding="30,0,30,50">
+            <Border HeightRequest="500" BackgroundColor="White" StrokeShape="RoundRectangle 35" Margin="0,-18,0,10">
+
+                <VerticalStackLayout  Padding="10,-30,10,10">
+
+                    <Label FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="0,50,0,0">Sign Up Now</Label>
+                    <Label FontAttributes="Bold"  FontSize="20">Name</Label>
+                    <Entry Placeholder="Enter your username" ></Entry>
+
+
+                    <Label FontAttributes="Bold" FontSize="20">Email</Label>
+                    <Entry Placeholder="Enter your email address" ></Entry>
+
+                    <Label FontAttributes="Bold" FontSize="20">Phone no.</Label>
+                    <Entry Placeholder="Enter your email address" ></Entry>
+
+                    <Label FontAttributes="Bold" FontSize="20">Password</Label>
+                    <Entry Placeholder="Enter  your password" IsPassword="True"></Entry>
+
+                    <Button Text="Sign Up" CornerRadius="50" Margin="10">
+
+                    </Button>
+
+                    <Label TextDecorations="Underline" Padding="50,0,0,0">Already have an account. Log In</Label>
+
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>

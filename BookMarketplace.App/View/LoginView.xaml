@@ -5,53 +5,61 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
     xmlns:vm="clr-namespace:BookMarketplace.App.ViewModel"
-    Padding="10"
     x:DataType="vm:AuthViewModel"
     Shell.NavBarIsVisible="False">
 
-    <VerticalStackLayout
-        HorizontalOptions="FillAndExpand"
-        MaximumWidthRequest="400"
-        Spacing="10"
-        VerticalOptions="CenterAndExpand">
 
-        <Image
-            Aspect="AspectFit"
-            HeightRequest="250"
-            Source="login_image" />
-        <Label
-            Margin="0,10"
-            FontSize="Title"
-            HorizontalOptions="Center"
-            Text="Welcome to Pustak Sangam!" />
-        <Label
-            FontSize="17"
-            HorizontalOptions="Center"
-            HorizontalTextAlignment="Center"
-            Text="Enter your Login Credential to Cotinue" />
-        <material:TextField
-            Title="Email"
-            Keyboard="Email"
-            Text="{Binding Email}" />
-        <material:TextField
-            Title="Password"
-            IsPassword="True"
-            Text="{Binding Password}" />
-        <Button
-            Margin="0,10,0,0"
-            Command="{Binding LoginCommand}"
-            StyleClass="FilledButton"
-            Text="Login" />
+    <Grid RowDefinitions=".30*,  .70*">
+        <Border StrokeThickness="0"
+                Grid.Row="0"
+                    BackgroundColor="#0A428F"
+                Padding="15,0">
+            <VerticalStackLayout VerticalOptions="Center">
 
-        <Label
-            HorizontalOptions="Center"
-            Text="forget password?"
-            TextColor="Blue" />
+                <Label Text="Welcome"
+                   FontSize="35"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold" />
+                <Label Text="Pustak Sangam aims to provide a quick solution to get the old books from your collages and seniors"
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
 
-        <Label
-            HorizontalOptions="Center"
-            Text="Not a member yet? Try Registering."
-            TextColor="Black"
-            TextDecorations="Underline" />
-    </VerticalStackLayout>
+        </Border>
+
+        <VerticalStackLayout Grid.Row="1" Padding="30,0,30,50">
+            <Border HeightRequest="450" StrokeShape="RoundRectangle 35" Margin="0,-18,0,0"  BackgroundColor="White">
+
+                <VerticalStackLayout  Padding="10,-30,10,0">
+                    <Image Source="logo" Aspect="AspectFill" HeightRequest="155" WidthRequest="150" ></Image>
+                    <Label FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="0,-8,0,0">Log In Now</Label>
+                    <Label FontAttributes="Bold"  FontSize="23">Email</Label>
+                    <Entry Placeholder="Enter your email address" ></Entry>
+
+                    <Label FontAttributes="Bold" FontSize="23" >Password</Label>
+                    <Entry Placeholder="Enter  your password" IsPassword="True"></Entry>
+                    <Button Text="Log In" CornerRadius="50" Margin="10" Command="{Binding LoginCommand}"/>
+
+                    <Label HorizontalOptions="Center"  Text="Do you have account? Sign Up" TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding GotoSingupPageCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+
+                </VerticalStackLayout>
+
+            </Border>
+
+
+        </VerticalStackLayout>
+
+
+
+    </Grid>
+
 </ContentPage>
