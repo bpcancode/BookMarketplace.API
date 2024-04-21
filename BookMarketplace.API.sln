@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMarketplace.API", "Book
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMarketplace.Shared", "BookMarketplace.Shared\BookMarketplace.Shared.csproj", "{A43E02CB-555F-476A-A05C-06FD4190B383}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMarketplace.App", "BookMarketplace.App\BookMarketplace.App.csproj", "{0398A3DC-AFDF-4CAC-BCB8-397AED711F52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMarketplace.App", "BookMarketplace.App\BookMarketplace.App.csproj", "{4AD640A7-6CC1-4EB9-8621-FBB4BD07AAB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +23,12 @@ Global
 		{A43E02CB-555F-476A-A05C-06FD4190B383}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A43E02CB-555F-476A-A05C-06FD4190B383}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A43E02CB-555F-476A-A05C-06FD4190B383}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0398A3DC-AFDF-4CAC-BCB8-397AED711F52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0398A3DC-AFDF-4CAC-BCB8-397AED711F52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0398A3DC-AFDF-4CAC-BCB8-397AED711F52}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{0398A3DC-AFDF-4CAC-BCB8-397AED711F52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0398A3DC-AFDF-4CAC-BCB8-397AED711F52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0398A3DC-AFDF-4CAC-BCB8-397AED711F52}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{4AD640A7-6CC1-4EB9-8621-FBB4BD07AAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AD640A7-6CC1-4EB9-8621-FBB4BD07AAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AD640A7-6CC1-4EB9-8621-FBB4BD07AAB1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4AD640A7-6CC1-4EB9-8621-FBB4BD07AAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AD640A7-6CC1-4EB9-8621-FBB4BD07AAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AD640A7-6CC1-4EB9-8621-FBB4BD07AAB1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
