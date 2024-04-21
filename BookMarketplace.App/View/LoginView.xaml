@@ -5,9 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
     xmlns:vm="clr-namespace:BookMarketplace.App.ViewModel"
-    Padding="10"
     x:DataType="vm:AuthViewModel"
     Shell.NavBarIsVisible="False">
+
 
     <VerticalStackLayout
         HorizontalOptions="FillAndExpand"
@@ -25,7 +25,7 @@
             HorizontalOptions="Center"
             Text="Welcome to Pustak Sangam!" />
         <Label
-            FontSize="17"
+            FontSize="15"
             HorizontalOptions="Center"
             HorizontalTextAlignment="Center"
             Text="Enter your Login Credential to Cotinue" />
@@ -52,6 +52,11 @@
             HorizontalOptions="Center"
             Text="Not a member yet? Try Registering."
             TextColor="Black"
-            TextDecorations="Underline" />
+            TextDecorations="Underline" >
+
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GotoSingupPageCommand}" />
+            </Label.GestureRecognizers>
+        </Label>
     </VerticalStackLayout>
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using BookMarketplace.App.Services;
+using BookMarketplace.App.View;
 using BookMarketplace.Shared.Dtos;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -43,5 +44,11 @@ public partial class AuthViewModel(IAuthService authService) : BaseViewModel
         }
 
 
+    }
+
+    [RelayCommand]
+    private async Task GotoSingupPage()
+    {
+        await Shell.Current.GoToAsync(nameof(SingupView));
     }
 }

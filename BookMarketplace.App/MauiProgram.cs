@@ -28,7 +28,8 @@ public static class MauiProgram
         builder.Services.AddTransient<DashboardView>()
             .AddTransient<DashboardViewModel>()
             .AddTransient<LoginView>()
-            .AddTransient<AuthViewModel>();
+            .AddTransient<AuthViewModel>()
+            .AddTransient<SingupView>();
 
 #if DEBUG
         builder.Logging.AddDebug();
